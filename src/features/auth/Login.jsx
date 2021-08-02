@@ -44,6 +44,7 @@ import QuestionModal from "./helpers/QuestionModal";
 import AvatarRadio from "./helpers/AvatarRadio";
 
 const Login = ({ location: { from } }) => {
+  console.log("KEY", process.env.REACT_APP_GOOGLE_CLIENT_ID);
   const {
     userExists,
     isAuthenticated,
