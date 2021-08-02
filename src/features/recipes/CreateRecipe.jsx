@@ -119,6 +119,7 @@ function EditRecipe() {
       dispatch(
         createRecipe({
           title: title
+            .trim()
             .toLowerCase()
             .split(" ")
             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
@@ -170,7 +171,7 @@ function EditRecipe() {
                   focusBorderColor={colorMode === "light" ? "black" : "white"}
                   fontSize={"lg"}
                   onChange={(e) => {
-                    setTitle(e.target.value.trim());
+                    setTitle(e.target.value);
                     setTitleError("");
                   }}
                   isRequired
@@ -223,7 +224,7 @@ function EditRecipe() {
                         }
                         fontSize={{ base: "md", md: "lg" }}
                         ref={ingredientRef}
-                        onChange={(e) => setIngredient(e.target.value.trim())}
+                        onChange={(e) => setIngredient(e.target.value)}
                         value={ingredient}
                         isInvalid={ingredientError}
                       />

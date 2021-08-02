@@ -163,7 +163,7 @@ function EditRecipe() {
       dispatch(
         updateRecipe({
           ...currentRecipe,
-          title,
+          title: title.trim(),
           cuisine: selectedCuisine,
           ingredients: ingredientTags,
         })
@@ -211,9 +211,9 @@ function EditRecipe() {
                   focusBorderColor={colorMode === "light" ? "black" : "white"}
                   fontSize={"lg"}
                   onChange={(e) => {
-                    setTitle(e.target.value.trim());
+                    setTitle(e.target.value);
                     setTitleError("");
-                    if (e.target.value.trim() !== currentRecipe?.title) {
+                    if (e.target.value !== currentRecipe?.title) {
                       setRecipeChanged(true);
                     } else if (
                       selectedCuisine === currentRecipe?.cuisine &&
@@ -282,7 +282,7 @@ function EditRecipe() {
                         }
                         fontSize={{ base: "md", md: "lg" }}
                         ref={ingredientRef}
-                        onChange={(e) => setIngredient(e.target.value.trim())}
+                        onChange={(e) => setIngredient(e.target.value)}
                         value={ingredient}
                         isRequired={ingredientTags?.length < 3}
                         isInvalid={ingredientError}

@@ -108,7 +108,9 @@ const Login = ({ location: { from } }) => {
     onSubmit: async ({ email, password }) => {
       const token = await reRef.current.executeAsync();
       reRef.current.reset();
-      dispatch(login({ email, password, token }));
+      dispatch(
+        login({ email: email.trim(), password: password.trim(), token })
+      );
     },
   });
 
@@ -163,7 +165,7 @@ const Login = ({ location: { from } }) => {
                   focusBorderColor="black"
                   fontSize={"lg"}
                   onChange={googleFormik.handleChange}
-                  value={googleFormik.values.googleUsername.trim()}
+                  value={googleFormik.values.googleUsername}
                   isRequired
                   isInvalid={
                     (googleFormik.touched.googleUsername &&
@@ -199,7 +201,7 @@ const Login = ({ location: { from } }) => {
                     focusBorderColor="black"
                     fontSize={"lg"}
                     onChange={googleFormik.handleChange}
-                    value={googleFormik.values.googlePassword.trim()}
+                    value={googleFormik.values.googlePassword}
                     isRequired
                     isInvalid={
                       googleFormik.touched.googlePassword &&
@@ -314,7 +316,7 @@ const Login = ({ location: { from } }) => {
                   focusBorderColor="black"
                   fontSize={"lg"}
                   onChange={formik.handleChange}
-                  value={formik.values.email.trim()}
+                  value={formik.values.email}
                   isRequired
                   isInvalid={
                     (formik.touched.email && formik.errors.email) || emailAuth
@@ -360,7 +362,7 @@ const Login = ({ location: { from } }) => {
                         : false
                     }
                     onChange={formik.handleChange}
-                    value={formik.values.password.trim()}
+                    value={formik.values.password}
                   />
                   <InputRightElement width="4.5rem">
                     <Button

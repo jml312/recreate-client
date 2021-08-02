@@ -79,14 +79,14 @@ function Register({ location: { from } }) {
       reRef.current.reset();
       dispatch(
         register({
-          fullName: `${firstName} ${lastName}`
+          fullName: `${firstName.trim()} ${lastName.trim()}`
             .toLowerCase()
             .split(" ")
             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
             .join(" "),
-          username,
-          email,
-          password,
+          username: username.trim(),
+          email: email.trim(),
+          password: password.trim(),
           selectedAvatar,
           token,
         })
@@ -175,7 +175,7 @@ function Register({ location: { from } }) {
                       borderColor="gray"
                       focusBorderColor="black"
                       onChange={formik.handleChange}
-                      value={formik.values.firstName.trim()}
+                      value={formik.values.firstName}
                       isRequired
                       isInvalid={
                         (formik.touched.firstName && formik.errors.firstName) ||
@@ -203,7 +203,7 @@ function Register({ location: { from } }) {
                       borderColor="gray"
                       focusBorderColor="black"
                       onChange={formik.handleChange}
-                      value={formik.values.lastName.trim()}
+                      value={formik.values.lastName}
                       isRequired
                       isInvalid={
                         (formik.touched.lastName && formik.errors.lastName) ||
@@ -234,7 +234,7 @@ function Register({ location: { from } }) {
                     focusBorderColor="black"
                     fontSize={"lg"}
                     onChange={formik.handleChange}
-                    value={formik.values.username.trim()}
+                    value={formik.values.username}
                     isRequired
                     isInvalid={
                       (formik.touched.username && formik.errors.username) ||
@@ -268,7 +268,7 @@ function Register({ location: { from } }) {
                     focusBorderColor="black"
                     fontSize={"lg"}
                     onChange={formik.handleChange}
-                    value={formik.values.email.trim()}
+                    value={formik.values.email}
                     isRequired
                     isInvalid={
                       (formik.touched.email && formik.errors.email) ||
@@ -299,7 +299,7 @@ function Register({ location: { from } }) {
                       focusBorderColor="black"
                       fontSize={"lg"}
                       onChange={formik.handleChange}
-                      value={formik.values.password.trim()}
+                      value={formik.values.password}
                       isRequired
                       isInvalid={
                         formik.touched.password && formik.errors.password

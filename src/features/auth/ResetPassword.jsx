@@ -80,7 +80,7 @@ function ResetPassword({ location: { from } }) {
     onSubmit: async ({ password }) => {
       const token = await reRef.current.executeAsync();
       reRef.current.reset();
-      dispatch(resetPassword({ resetToken, password, token }));
+      dispatch(resetPassword({ resetToken, password: password.trim(), token }));
     },
   });
 
@@ -191,7 +191,7 @@ function ResetPassword({ location: { from } }) {
                       focusBorderColor="black"
                       fontSize={"lg"}
                       onChange={formik.handleChange}
-                      value={formik.values.password.trim()}
+                      value={formik.values.password}
                       isRequired
                       isInvalid={
                         formik.touched.password && formik.errors.password
@@ -239,7 +239,7 @@ function ResetPassword({ location: { from } }) {
                       focusBorderColor="black"
                       fontSize={"lg"}
                       onChange={formik.handleChange}
-                      value={formik.values.confirmPassword.trim()}
+                      value={formik.values.confirmPassword}
                       isRequired
                       isInvalid={
                         formik.touched.confirmPassword &&

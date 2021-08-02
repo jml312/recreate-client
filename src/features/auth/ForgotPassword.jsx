@@ -123,7 +123,7 @@ function ForgotPassword({ location: { from } }) {
                     focusBorderColor="black"
                     fontSize={"md"}
                     onChange={formik.handleChange}
-                    value={formik.values.email.trim()}
+                    value={formik.values.email}
                     isRequired
                     isInvalid={
                       (formik.touched.email && formik.errors.email) || emailAuth

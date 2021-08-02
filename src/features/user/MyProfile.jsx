@@ -258,9 +258,7 @@ function MyProfile() {
                           type="text"
                           placeholder="Change username"
                           value={currentUsername}
-                          onChange={(e) =>
-                            setCurrentUsername(e.target.value.trim())
-                          }
+                          onChange={(e) => setCurrentUsername(e.target.value)}
                         />
                         {usernameError && (
                           <Alert status="error">
@@ -318,7 +316,7 @@ function MyProfile() {
 
                           dispatch(
                             updateAccount({
-                              username: currentUsername,
+                              username: currentUsername.trim(),
                               selectedAvatar: currentAvatar,
                             })
                           );
