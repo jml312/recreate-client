@@ -269,6 +269,7 @@ const Login = ({ location: { from } }) => {
           top: "2%",
           textAlign: "center",
         }}
+        visibility={{ base: "hidden", md: "visible" }}
       >
         <Logo />
       </Flex>
