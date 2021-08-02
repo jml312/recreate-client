@@ -44,7 +44,6 @@ import QuestionModal from "./helpers/QuestionModal";
 import AvatarRadio from "./helpers/AvatarRadio";
 
 const Login = ({ location: { from } }) => {
-  console.log(process.env.REACT_APP_RECAPTCHA_SITE_KEY);
   const {
     userExists,
     isAuthenticated,
